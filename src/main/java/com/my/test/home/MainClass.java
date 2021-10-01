@@ -7,11 +7,20 @@ public class MainClass {
     public static void main(String[] args) {
         String configLoc = "classpath:applicationCTX.xml";
         AbstractApplicationContext ctx = new GenericXmlApplicationContext(configLoc);
-        MyCalculator myCalculator = ctx.getBean("myCalculator", MyCalculator.class);
 
-        myCalculator.add();
-        myCalculator.sub();
-        myCalculator.mul();
-        myCalculator.div();
+        Student student1 = ctx.getBean("stu1", Student.class);
+        Student student2 = ctx.getBean("stu2", Student.class);
+        Student student3 = ctx.getBean("stu3", Student.class);
+        StudentInfo student4 = ctx.getBean("stu4", StudentInfo.class);
+
+        student4.stuInfoPrint();
+
+        student4.setStu(student1);
+        student4.stuInfoPrint();
+        student4.setStu(student3);
+        student4.stuInfoPrint();
+        student4.setStu(student2);
+        student4.stuInfoPrint();
+
     }
 }
