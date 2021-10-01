@@ -5,22 +5,35 @@ import org.springframework.context.support.GenericXmlApplicationContext;
 
 public class MainClass {
     public static void main(String[] args) {
-        String configLoc = "classpath:applicationCTX.xml";
-        AbstractApplicationContext ctx = new GenericXmlApplicationContext(configLoc);
+        String configLoc1 = "classpath:applicationCTX01.xml";
+        String configLoc2 = "classpath:applicationCTX02.xml";
+        AbstractApplicationContext ctx = new GenericXmlApplicationContext(configLoc1, configLoc2);
 
-        Student student1 = ctx.getBean("stu1", Student.class);
-        Student student2 = ctx.getBean("stu2", Student.class);
-        Student student3 = ctx.getBean("stu3", Student.class);
-        StudentInfo student4 = ctx.getBean("stu4", StudentInfo.class);
+        Student st1 = ctx.getBean("stu1", Student.class);
+        System.out.println(st1.getName());
+        System.out.println(st1.getHobbys());
 
-        student4.stuInfoPrint();
+        StudentInfo stIn = ctx.getBean("stuInfo1", StudentInfo.class);
+        Student st2 = stIn.getStu();
+        System.out.println(st1.getName());
+        System.out.println(st1.getHobbys());
 
-        student4.setStu(student1);
-        student4.stuInfoPrint();
-        student4.setStu(student3);
-        student4.stuInfoPrint();
-        student4.setStu(student2);
-        student4.stuInfoPrint();
+        if(st1.equals(st2)) System.out.println("st1과 st2는 같은 사람~!");
+        else System.out.println("st1과 st2는 다른 사람~!");
 
+        Student st3 = ctx.getBean("stu2", Student.class);
+        System.out.println(st3.getName());
+
+
+        if(st1.equals(st3)) System.out.println("st1과 st3는 같은 사람~!");
+        else System.out.println("st1과 st3는 다른 사람~!");
+
+        Family fm = ctx.getBean("fam", Family.class);
+        System.out.println(fm.getPapa());
+        System.out.println(fm.getMama());
+        System.out.println(fm.getBro());
+        System.out.println(fm.getSis());
+
+        ctx.close();
     }
 }

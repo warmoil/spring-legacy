@@ -1,28 +1,30 @@
 package com.my.test.home;
 
+import java.util.ArrayList;
+
 public class Student {
     private String name;
-    private String age;
-    private String major;
-    private String gradeNum;
-    private String classNum;
+    private int age;
+    private ArrayList<String> hobbys;
+    private double height;
+    private double weight;
+
+    public Student(String name, int age, ArrayList<String> hobbys) {
+        this.name = name;
+        this.age = age;
+        this.hobbys = hobbys;
+    }
+    public Student(){
+    }
 
     public String getName() {return name;}
     public void setName(String name) {this.name = name;}
-    public String getAge() {return age;}
-    public void setAge(String age) {this.age = age;}
-    public String getMajor() {return major;}
-    public void setMajor(String major) {this.major = major;}
-    public String getGradeNum() {return gradeNum;}
-    public void setGradeNum(String gradeNum) {this.gradeNum = gradeNum;}
-    public String getClassNum() {return classNum;}
-    public void setClassNum(String classNum) {this.classNum = classNum;}
-    public Student(String name, String age, String major, String gradeNum, String classNum) {
-        this.name = name;
-        this.age = age;
-        this.major = major;
-        this.gradeNum = gradeNum;
-        this.classNum = classNum;
-    }
-
+    public int getAge() {return age;}
+    public void setAge(int age) {this.age = age;}
+    public ArrayList<String> getHobbys() {return hobbys;}
+    public void setHobbys(ArrayList<String> hobbys) {this.hobbys = hobbys;}
+    public double getHeight() {return height;}
+    public void setHeight(double height) {this.height = height;}
+    public double getWeight() {return weight;}
+    public void setWeight(double weight) {this.weight = weight;}
 }

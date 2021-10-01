@@ -6,6 +6,9 @@ public class StudentInfo {
     public StudentInfo(Student stu) {
         this.stu = stu;
     }
+    public StudentInfo(){
+
+    }
 
     public Student getStu() {return stu;}
     public void setStu(Student stu) {this.stu = stu;}
@@ -14,9 +17,6 @@ public class StudentInfo {
             System.out.println("===========================");
             System.out.println("이름 : " + stu.getName());
             System.out.println("나이 : " + stu.getAge());
-            System.out.println("학과 : " + stu.getMajor());
-            System.out.println("학년 : " + stu.getGradeNum());
-            System.out.println("반 : " + stu.getClassNum());
             System.out.println("===========================");
             System.out.println();
         }
